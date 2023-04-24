@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="index.css">
     <title>PlatziConf Hawaii</title>
   </head>
-  <body>
+  <body data-spy="scroll" data-target="#navbar" data-offset="40">
     <!-- Header -->
-    <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div class="container">
         <a  class="navbar-brand" href="#">
           <img src="../cobra.png" alt="cobra.png">
@@ -22,19 +22,19 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbar">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">la conferencia</a>
+            <li class="nav-item">
+              <a class="nav-link" href="#main">la conferencia</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">los oradores</a>
+              <a class="nav-link" href="#Speakers ">los oradores</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">el lugar y la fecha</a>
+              <a class="nav-link" href="#place-time">el lugar y la fecha</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">conviertete en orador</a>
+              <a class="nav-link" href="#conviertete-en-orador">conviertete en orador</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-platzi" href="#">compras de tickets</a>
@@ -118,6 +118,9 @@
                   <h5 class="card-title">Cesar Eduardo Patino Polanco</h5>
                   <spam class="badge badge-warning mb-3">sabe JavaScript</spam>
                     <spam class="badge badge-info mb-3">sabe Programar</spam>
+
+                    <spam class="badge badge-info mb-3">sabe programar</spam>
+
                   <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, ratione magnam explicabo maiores sunt provident hic facilis quisquam quae distinctio! </p>
                 </div>
               </div>
@@ -138,7 +141,11 @@
           <div class="col-lg-12 col-xl-6 mt-4 mb-4">
             <h2>Brazil - Octubre 2025</h2>
             <p>
+
               Brasil, tiene unas playas re lindas nota cuyo nombre oficial es República Federativa de Brasil (en portugués: República Federativa do Brasil, pron. AFI [ʁe'publikɐ fedeɾat͡ʃivɐ 'dʊ braziw] ( escuchar)), es un país soberano de América del Sur que comprende la mitad oriental del continente y algunos grupos de pequeñas islas en el océano Atlántico. Su capital es Brasilia y su ciudad más poblada es São Paulo. Es el tercer país más grande de América. Con una superficie estimada en más de 8,5 millones de km²,es el quinto país más grande del mundo en área total (equivalente a 50 % del territorio sudamericano).Delimitado por el océano Atlántico al este, Brasil tiene una línea costera de 7491 km.Al norte limita con el departamento ultramarino francés de la Guayana Francesa, Surinam, Guyana y Venezuela; al noroeste con Colombia; al oeste con Perú y Bolivia; al suroeste con Paraguay y Argentina, y al sur con Uruguay. De este modo tiene frontera con todos los países de América del Sur, excepto Ecuador y Chile. La mayor parte del país está comprendido entre los trópicos terrestres, por lo que las estaciones climáticas no se sienten de una manera radical en gran parte de su territorio. La selva amazónica cubre 3,6 millones de km² del territorio. Gracias a su vegetación y al clima, es uno de los países con más especies de animales en el mundo. 
+
+              Brasil,nota cuyo nombre oficial es República Federativa de Brasil (en portugués: República Federativa do Brasil, pron. AFI [ʁe'publikɐ fedeɾat͡ʃivɐ 'dʊ braziw] ( escuchar)), es un país soberano de América del Sur que comprende la mitad oriental del continente y algunos grupos de pequeñas islas en el océano Atlántico. Su capital es Brasilia y su ciudad más poblada es São Paulo. Es el tercer país más grande de América. Con una superficie estimada en más de 8,5 millones de km²,es el quinto país más grande del mundo en área total (equivalente a 50 % del territorio sudamericano).Delimitado por el océano Atlántico al este, Brasil tiene una línea costera de 7491 km.Al norte limita con el departamento ultramarino francés de la Guayana Francesa, Surinam, Guyana y Venezuela; al noroeste con Colombia; al oeste con Perú y Bolivia; al suroeste con Paraguay y Argentina, y al sur con Uruguay. De este modo tiene frontera con todos los países de América del Sur, excepto Ecuador y Chile. La mayor parte del país está comprendido entre los trópicos terrestres, por lo que las estaciones climáticas no se sienten de una manera radical en gran parte de su territorio. La selva amazónica cubre 3,6 millones de km² del territorio. Gracias a su vegetación y al clima, es uno de los países con más especies de animales en el mundo. 
+
             </p>
             <a class="btn btn-outline-light" hret="https://es.wikipedia.org/wiki/Brasil">Conoce mas</a>
           </div>
@@ -191,7 +198,6 @@
         </div>
      <!--/conviertete en orador-->
 
-
     <!-- Footer -->
     <footer id="footer" class="">
       <div class="contrainer">
@@ -235,5 +241,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
     -->
+    <script src="index.js"></script>
   </body>
 </html>
