@@ -73,5 +73,37 @@ componentes visuales
 
 el codigo anda
 
-# Grilla 
+# posts
+
+usuarios 
+
+comentarios 
+
+categorias 
+
+etiquetas 
+
+escribe
+
+tiene 
+
+1:N
+
+N:N
+
+# Tipos de dato
+
+Texto(CHAR(n) VARCHAR(n) TEXT)
+
+Numeros(INTEGER BIGINT SMALLINT DECIMAL(n,s) NUMERIC(n,s))
+
+Fecha/hora(DATE TIME DETETIME TIMESTAMP)
+
+Logicos(BOOLEAN, puede ser 1 o 0)
+
+# Constraints (Restriccion)
+
+Contraint(NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY, CHECK, DEFAULT, INDEX)
+
+Descripcion
 
