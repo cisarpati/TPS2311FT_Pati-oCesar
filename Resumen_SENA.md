@@ -203,9 +203,36 @@ data manipulation language
 
 Insert, update, delete, select
 
+INSERT INTO people (last_name, first_name, address, city)
 
+VALUES ("hernandez", "laura", "calle 21", "monterrey");
+
+UPDATE people
+
+SET last_name = "Chavez", city= "merida"
+
+WHERE person_id = 1;
+
+UPDATE people
+
+SET first_name = "juan"
+
+WHERE city = "merida";
+
+SET SQL_SAFE_UPDATES = 0;
+
+para UTF8MB4
+
+DELETE FROM people
+WHERE person_id = 1;
+
+DELETE FROM people;
+
+SELECT fist_name, last_name
+FROM people;
 
 ## Playground: CRUD con SQL
+
 
 ## ¿Qué tan standard es SQL?
 
@@ -414,4 +441,3 @@ Contraint(NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY, CHECK, DEFAULT, INDEX)
 
 Descripcion
 
->>>>>>> e0c7ccc87f78e3a53bfae9b94ce4847e85a3777e
