@@ -273,11 +273,95 @@ FROM people;
 
 ## El interminable agujero de conejo (Nested queries)
 
+queris anidados o subquieris (Dentro de un queri se puede hacer otro queri) 
+
+SELECT new_table_protection.date, COUNT(*) AS posts_count
+FROM (
+SELECT DATE(MIN(fecha_publicacion)) AS date, YEAR(fecha_publicacion) AS post_year
+FROM posts
+GROUP BY  post_year
+)AS new_table_projection
+GROUP BY new_table_projection.date
+ORDER BY new_table_projection.date;
+
+SELECT *
+FROM posts
+WHERE fecha_publicacion = (
+SELECT MAX (fecha_publicacion)
+FROM posts
+);
+
 ## ¿Cómo convertir una pregunta en un query SQL?
+
+De pregunta de Query
+
+Lo que quieres mostrar = SELECT
+
+De donde voy a tomar los datos = FROM
+
+Los filtros de los datos que quieres mostrar = WHERE
+
+Los rubros por los que me interesa agrupar la informacion = GROUP BY
+
+El orden en que quiero presentar mi informacion ORDER BY 
+
+Los filtros que quiero que mis datos aqrupados tengan HAVING
+
+SELECT posts.titulo, COUNT(*) num_etiquetas 
+FROM posts 
+ INNER JOIN posts_etiquetas ON posts.id = posts_etiquetas.post_id
+ INNER JOIN etiquetas ON etiquetas.id = posts_etiquetas.etiqueta_id
+GROUP BY posts.id
+ORDER BY num_etiquetas DESC; 
+
+SELECT posts.titulo, GROUP_CONCAT(nombre_etiqueta)
+FROM posts 
+ INNER JOIN posts_etiquetas ON posts.id = posts_etiquetas.post_id
+ INNER JOIN etiquetas ON etiquetas.id = posts_etiquetas.etiqueta_id
+GROUP BY posts.id;
+
+SELECT *
+FROM etiquetas 
+ LEFT JOIN posts_etiquetas ON etiquetas.id = posts_etiquetas.etiqueta_id
+ WHERE posts_etiquetas.etiqueta_id IS NULL;
 
 ## Preguntándole a la base de datos
 
 ## Consultando PlatziBlog
+
+SELECT c.nombre_categoria, COUNT(*) AS cant_posts
+FROM categorias AS c
+  INNER JOIN posts AS p ON c.id = p.categoria_id
+GROUP BY c.id
+ORDER BY cant_posts DESC
+LIMIT 1;  
+
+¿Cual es la categoria que tiene mas posts?
+
+¿Cual es el usuario que a creado mas posts?
+
+SELECT u.nickname, COUNT(*) cant_posts 
+FROM usuarios AS u
+  INNER JOIN posts AS p on u.id = p.usuario_id
+GROUP BY u.id
+ORDER BY cant_posts DESC; 
+
+¿De que categorias esta escribiendo?
+
+SELECT u.nickname, COUNT(*) cant_posts, group_concat(nombre_categoria) 
+FROM usuarios AS u
+  INNER JOIN posts AS p on u.id = p.usuario_id
+  INNER JOIN categorias AS c on c.id = p.categoria_id
+GROUP BY u.id
+ORDER BY cant_posts DESC; 
+
+SELECT *
+FROM usuarios AS u	
+  LEFT JOIN posts on u.id = posts.usuario_id
+WHERE posts.usuario_id iS NULL
+;
+
+
 
 ## Playground: Prueba Final con PlatziBlog
 
@@ -440,4 +524,17 @@ Logicos(BOOLEAN, puede ser 1 o 0)
 Contraint(NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY, CHECK, DEFAULT, INDEX)
 
 Descripcion
+
+### group by
+
+combina registros con valores idénticos en la lista de campos especificados en un único registro
+
+## select
+
+para agregar una colomna siempre va hacer en el select 
+
+si hay 4 comas va a ver 5 columnas
+
+ej:
+hola1,hola2,hola3,hola4,hola5
 
