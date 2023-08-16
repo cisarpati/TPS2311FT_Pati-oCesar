@@ -327,6 +327,69 @@ FROM etiquetas
 
 ## Preguntándole a la base de datos
 
+SELECT post.titulo, COUNT(*) num_etiquetas
+FROM posts
+  INNER JOIN posts_etiquetas ON posts.id = post_etiquetas.post_id
+  INNER JOIN etiquetas ON etiquetas.id = posts_etiquetas.etiqueta_id
+GROUP BY posts_id;
+ORDER BY num_etiquetas DESC;
+
+¿Para que sirve el INNER JOIN?
+
+LEFT  
+RIGHT 
+INNER 
+OUTER 
+FULL 
+CROSS
+
+SELECT posts.titulo
+FROM posts;
+
+posts.id
+pos_etiquetas.post_id
+SELECT * FROM platziblog.posts_etiquetas;
+
+SELECT posts.titulo, COUNT(*) num_etiquetas
+FROM posts
+  INNER JOIN posts_etiquetas ON posts.id = posts_etiquetas.post_id
+  INNER JOIN etiquetas ON etiquetas.id = posts_etiquetas.etiqueta_id
+GROUP BY posts_id
+ORDER BY num_etiquetas DESC;
+
+SELECT posts.titulo, COUNT(*) num_etiquetas
+FROM posts
+  INNER JOIN posts_etiquetas ON posts.id = posts_etiquetas.post_id
+GROUP BY post_id;
+
+SELECT posts.titulo
+FROM posts
+  INNER JOIN posts_etiquetas ON posts.id = posts_etiquetas.post_id
+  INNER JOIN etiquetas ON etiquetas.id = posts_etiquetas.etiqueta_id;
+  
+ SELECT *
+FROM posts
+  INNER JOIN posts_etiquetas ON posts.id = posts_etiquetas.post_id
+  INNER JOIN etiquetas ON etiquetas.id = posts_etiquetas.etiqueta_id;
+  
+  SELECT posts.titulo
+FROM posts
+  INNER JOIN posts_etiquetas ON posts.id = posts_etiquetas.post_id;
+
+SELECT *
+FROM posts, posts_etiquetas;
+
+¿Cuatas etiquetas tiene un post?
+
+SELECT *
+FROM etiqueta
+  LEFT JOIN posts_etiquetas ON etiquetas.id = posts_etiquetas.etiqueta_id
+WHERE posts_etiquetas.etiqueta_id IS NULL;
+
+¿Que etiquetas no tienen post?
+
+
+
 ## Consultando PlatziBlog
 
 SELECT c.nombre_categoria, COUNT(*) AS cant_posts
@@ -358,13 +421,20 @@ ORDER BY cant_posts DESC;
 SELECT *
 FROM usuarios AS u	
   LEFT JOIN posts on u.id = posts.usuario_id
-WHERE posts.usuario_id iS NULL
-;
+WHERE posts.usuario_id iS NULL;
+
+¿De que categoria es esta?
+
+SELECT u.nickname, COUNT(*) cant_posts, group_concat(nombre_categoria) 
+FROM usuarios AS u
+  INNER JOIN posts AS p on u.id = p.usuario_id
+  INNER JOIN categorias AS c on c.id = p.categoria_id
+GROUP BY u.id
+ORDER BY cant_posts DESC; 
 
 
 
 ## Playground: Prueba Final con PlatziBlog
-
 
 # Introducción a la bases de datos NO relacionales
 
@@ -538,3 +608,184 @@ si hay 4 comas va a ver 5 columnas
 ej:
 hola1,hola2,hola3,hola4,hola5
 
+## Curso Práctico de JavaScript
+
+### Prueba de JavaScript
+
+¿Que es una variable y para que sirve?
+
+variables = es para guarada muchas cosas o cajitas (espacios de memoria)
+
+¿Cual es la diferencia entre declarar e inicializar una variable?
+
+Una variable se declara para indicarle al programa a partir de qué lugar empieza a existir, qué nombre tendrá y qué tipo de datos almacenará
+
+¿Cual es la diferencia entre sumar numero y concatenar strings?
+
+números es una operación matemática y concatenar es unir strings uno tras otro.
+
+¿Cual operador me permite sumar o concatenar?
+
+El signo & operador de cálculo permite unir elementos de texto sin tener que utilizar una función
+
+Nombre: string Apellido: string Nombre de usuario en platzi: strig (@fulanito) Edad: number Correo electronico: string (lala@gmail.com) Mayor de edad: boolean Dinero ahorrado: number deudas: number
+
+### Variables
+'''
+
+lef nombre = 'Cesar' lef apellido = 'Patiño polanco'; lef usarname = 'cesar' lef edad = 16; lef mail = 'cesitar@gmail.com'; lef esMayorDeEdad = true; lef dineroAhorrado = 1000; lef deuda = 100; ''' lef dineroReal = DineroAhorrado - deudas;
+
+### Funciones
+funcion nombreCompleto ('parametro','parametro') funcion nombreCompleto (nombre, apellido) { return name + ' ' + lastName }
+
+nombreCompleto('argumento','argumento') nombreCompleto('Iris','Alcachofa')
+
+Las funciones nos permite (guardar) bloque de codigos para reutilizarlos y ejecutarlos en el futuro. "El argumento es el que remplaza los parametros de la funcion"
+
+Nos sirve cuando tenemos variable o bloques con codigos de mu pareciodos (con cambios que podria ser parametros y argumentos) que podemos encapsular para reutilizar mas de una vez en le futuro.
+
+Tambien nos sirve para ordenar y mejorar
+
+nombreCompleto('natalia','villamil') = son argumentos
+
+console.log("MI nombre es " + completeName + ", pero prefiero que me digas " + nickname + ".");
+
+### Condicionales
+
+son la forma en la que ejecutamos un bloqueo de codigo de comando a partir de una condicion 
+
+¿Que tipo de condicionales existen?
+
+IF (else y else if), switch
+con el caso de if es para validar si una condicion es true o false 
+
+switch
+el condicional switch nos deja agregar una variable y por de case comprobar si cumple con su condicion
+
+¿Puedo combinar funciones y condinionales?
+
+Si. Las funciones pueden encapsular cualquier  
+
+### Ciclos
+
+let 
+asigna nombres a los resultados de los cálculos
+
+el ciclo es la forma para ejecutar un bloque de codigo hasta que se cumpla cierta condicion 
+
+¿Que tipos de ciclos existen?
+
+while, de while y for.
+
+Es cuando la la validacion de nuestro condicionales nunca se cumple y termina totenado (dañando) la aplicacion
+
+si aun que los ciclos son una especie de condicionales 
+
+for (let i = 0; i < 5; i++) {
+  console.log("El valor de i es:" + i);
+}
+
+```js
+while (respuesta != '4') {
+    let pregunta = prompt('¿Cuanto es 2 + 2?')
+    respuesta = pregunta; 
+}
+```
+
+### Arrays y objetos
+
+El array es una lista de elementos
+
+```
+const array = (1, "jaja", true, false);
+```
+
+Un objetro es una lista de elementos PERO  cada elemento tiene un nombre clave.
+
+```
+const obj = {
+  nombre: "Fulanito",
+  edad: 3,
+  comidaFavorita: ["pollo frito", "vegetales"],
+};
+```
+
+¿cuando es mejor usar objetos o arrays?
+
+arrays cuando lo que haremos en un elemento es lo mismo que en todos los demas (la regla se puede imcumplir). Mientras que en un objeto cuando los nombfres de cada elemento son importantes para nuestro algoritmo.
+
+
+¿puedo mezclar array s con objetos o incluso objetos con arrays?
+
+Si. Los arrays pueden guaradar objetos. Y los objetos pueden guardar arrays entre sus propiedades.
+
+array = [] corchete
+
+objeto = {} llave 
+
+### Bonus: reducción de condicionales
+
+
+
+### ¡Es tu turno: crea un tutorial!
+
+## Manipulación del DOM
+
+### Cómo conectar JavaScript con HTML
+
+### Leyendo HTML desde JavaScript
+
+### Escribiendo HTML desde JavaScript
+
+### Eventos en JavaScript: interactuando con usuarios
+
+### addEventListener
+
+## Contribución a proyectos
+
+### Conectando GitHub a proyectos de JavaScript
+
+### Proyectos con JavaScript y GitHub desde cero
+
+### Fork a proyectos en GitHub
+
+### Analizando código de proyectos open-source
+
+### Fusión del menú en desktop
+
+### Fusión del menú en mobile
+
+### Carrito de compras
+
+### Lista de productos: HTML a partir de arrays
+
+### Detalles de un producto
+
+### Interacción entre todos los componentes
+
+### Pull Requests: aportando código a proyectos en GitHub
+
+### Feedback: conoce proyectos
+
+## Despliegue
+
+### Deploy con GitHub Pages
+
+## Próximos pasos
+
+### ¿Cuál es tu sueño con JavaScript?
+
+### Comparte tu proyecto y certifícate
+
+about:blank
+pagina en blanco 
+
+const name = "Cesar Eduardo"; const lastname = " Patiño Polanco"; const completeName = name + lastname; const nickname = "cesarp";
+
+console.log("Mi nombre es " + completeName + ", pero prefiero que me digan " + nickname + ".");
+
+function mensaje (completeName, nickname){
+    return "Mi nombre es " + completeName + ", pero prefiero que me digas " + nickname + "."}
+undefined
+mensaje("mao", "ins")
+'Mi nombre es mao, pero prefiero que me digas ins.'
