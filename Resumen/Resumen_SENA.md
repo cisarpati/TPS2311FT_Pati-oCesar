@@ -725,19 +725,21 @@ objeto = {} llave
 
 ### Bonus: reducción de condicionales
 
-
-
 ### ¡Es tu turno: crea un tutorial!
 
 ## Manipulación del DOM
 
 ### Cómo conectar JavaScript con HTML
 
+
+
 ### Leyendo HTML desde JavaScript
 
 ### Escribiendo HTML desde JavaScript
 
 ### Eventos en JavaScript: interactuando con usuarios
+
+
 
 ### addEventListener
 
@@ -789,3 +791,11 @@ function mensaje (completeName, nickname){
 undefined
 mensaje("mao", "ins")
 'Mi nombre es mao, pero prefiero que me digas ins.'
+
+const img = document.createElement("img");
+img.setAttribute("src", "https://es.wallpaper.mob.org/gallery/tag=dragons/");
+
+function btnOnclick () {
+    const sumainputs = input1.value + input2.value;
+    result.innerText = "Resultado: " + sumainputs;
+} 
